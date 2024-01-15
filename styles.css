@@ -1,0 +1,47 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+.score {
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.Options {
+    display: flex; /* Use flexbox for a horizontal layout */
+    justify-content: space-evenly; /* Space the buttons evenly */
+}
+
+.Options button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.Options button:hover {
+    background-color: #dadada;
+    color: #1d1d1d;
+    
+}
+
+#answer {
+    text-align: center;
+}
