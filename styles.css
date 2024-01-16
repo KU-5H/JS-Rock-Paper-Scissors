@@ -12,17 +12,19 @@ h1 {
 }
 
 .score {
-    font-size: 24px;
+    font-size: 18px;
+    font-weight: 500;
     text-align: center;
     padding-top: 20px;
 }
 
 .Options {
     display: flex; /* Use flexbox for a horizontal layout */
-    justify-content: space-evenly; /* Space the buttons evenly */
+    justify-content: center; /* Space the buttons evenly */
+    gap: 10%;
 }
 
-.Options button {
+button {
     background-color: #555;
     color: #fff;
     border: none;
@@ -36,12 +38,65 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-.Options button:hover {
+button:hover {
     background-color: #dadada;
     color: #1d1d1d;
     
 }
 
 #answer {
+    padding: 100px;
     text-align: center;
+}
+
+.gameOver {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.answer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.popup {
+    background-color: rgba(0,0,0,0.3);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup.open {
+    opacity: 100%;
+    z-index: 999;
+}
+
+.insidePopup {
+    background-color: #f2f2f2;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    padding: 15px 25px;
+    text-align: center;
+    width: 400px;
+}
+
+.popup-inner h2 {
+    margin: 0
+}
+
+.popup-inner p {
+    line-height: 24px;
+    margin: 10px 0;
 }
