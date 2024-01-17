@@ -41,5 +41,5 @@ You can view the website here: https://ku-5h.github.io/JS-Rock-Paper-Scissors/
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Documentation
-- ** Project Idea: ** <a href="https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors">The Odin Project</a>
+- **Project Idea:** <a href="https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors">The Odin Project</a>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
