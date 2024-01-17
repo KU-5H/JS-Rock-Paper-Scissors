@@ -81,7 +81,7 @@ function game(playerChoice) {
     const result = playRound(playerChoice, compChoice);
     let conclusion = '';
 
-    const convertToString = (choice ) => {
+    const convertToString = (choice) => {
         if (choice === 0) {
             return 'Rock'
         } else if (choice === 1) {
@@ -91,8 +91,21 @@ function game(playerChoice) {
         }
     }
 
+    const getImage = (choice) => {
+        if (choice === 0) {
+            return 'Images/rock-paper-scissors-296854_1280.png'
+        } else if (choice === 1) {
+            return 'Images/rock-paper-scissors-296855_1280.png'
+        } else {
+            return 'Images/rock-paper-scissors-296853_1280.png'
+        }
+    }
+
     const playerChoiceWord = convertToString(playerChoice);
     const compChoiceWord = convertToString(compChoice);
+
+    const image1Fetch = getImage(playerChoice);
+    const image2Fetch = getImage(compChoice);
 
     if (result === 2) {
         conclusion = "Tie! Both of you Picked " + playerChoiceWord + "."
@@ -111,6 +124,9 @@ function game(playerChoice) {
     score.textContent = 'Player Score: ' + localScore;
     compScore.textContent = 'Computer Score: ' + localCompScore;
 
+    image1.src = image1Fetch;
+    image2.src = image2Fetch;
+
     if (localScore === 5) {
         gameOver(0)
     } else if (localCompScore === 5) {
@@ -126,16 +142,29 @@ const rock = document.querySelector('#Rock');
 const paper = document.querySelector('#Paper');
 const scissors = document.querySelector('#Scissors');
 
-const overallScore = document.querySelector('#score');
+const overallScore = document.querySelector('.image1');
+const overallScoreComp = document.querySelector('.image2');
 
 const score = document.createElement("div");
 const compScore = document.createElement('div');
+
+const imageOne = document.querySelector(".image1");
+const imageTwo = document.querySelector(".image2");
+
+const image1 = document.createElement("img");
+const image2 = document.createElement("img");
+
+image1.classList.add("image");
+image2.classList.add("image");
 
 score.textContent = 'Player Score: '
 compScore.textContent = 'Computer Score: '
 
 overallScore.appendChild(score);
-overallScore.appendChild(compScore);
+overallScoreComp.appendChild(compScore);
+
+imageOne.appendChild(image1);
+imageTwo.appendChild(image2);
 
 rock.addEventListener('click', () => game(0));
 paper.addEventListener('click', () => game(1));
