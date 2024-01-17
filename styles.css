@@ -20,7 +20,6 @@ h1 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 20px;
     gap: 30px;
     max-width: 100%;
 }
@@ -28,7 +27,7 @@ h1 {
 .Options {
     display: flex; /* Use flexbox for a horizontal layout */
     justify-content: center; /* Space the buttons evenly */
-    gap: 10%;
+    gap: 7%;
 }
 
 button {
@@ -97,6 +96,7 @@ button:hover {
     padding: 15px 25px;
     text-align: center;
     width: 400px;
+    max-width: 60%;
 }
 
 .popup-inner h2 {
@@ -107,7 +107,6 @@ button:hover {
     line-height: 24px;
     margin: 10px 0;
 }
-
 
 .image {
     width: 400px;

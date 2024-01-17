@@ -7,6 +7,26 @@ closeBtn.addEventListener("click", () => {
     popup.classList.remove("open");
 });
 
+
+function preGameSetup() {
+
+    const answer = document.querySelector("#answer");
+    answer.textContent = "Press any button to get started!"
+
+    image1.src = 'Images/output-onlinepngtools (1).png'
+    image2.src = 'Images/output-onlinepngtools.png'
+
+    overallScore.appendChild(score);
+    overallScoreComp.appendChild(compScore);
+
+    score.textContent = 'Player Score: ' + localScore;
+    compScore.textContent = 'Computer Score: ' + localCompScore;
+
+    imageOne.appendChild(image1);
+    imageTwo.appendChild(image2);
+
+}
+
 function getComputerChoice() {
     let i = Math.floor(Math.random() * (2 - 0 + 1) + 0)
 
@@ -32,7 +52,9 @@ function playRound(p, c) {
 
 function gameOver(result) {
 
-    const answer = document.querySelector('#answer');
+    //const answerQuestion = document.querySelector("#answer");
+    const popup2 = document.querySelector('#answer');
+    const answer = document.createElement('div');
     const playAgain = document.createElement('button');
 
     if (result === 0) {
@@ -41,24 +63,34 @@ function gameOver(result) {
         answer.textContent = 'You Lost! You have been defeated by the Computer!'
     }
 
-    answer.classList.add('gameOver')
+    answer.classList.add('insidePopup');
+    answer.classList.add('gameOver');
+    answer.classList.add('answer')
 
     playAgain.textContent = 'Play Again?'
     playAgain.classList.add('Options')
 
     answer.appendChild(playAgain);
 
+    popup2.textContent = ''
+    popup2.classList.add("popup");
+    popup2.id = 'popup';
+    popup2.classList.add("open");
+    popup2.appendChild(answer)
+
+    //answerQuestion.appendChild(popup2)
+
     playAgain.addEventListener('click', () => {
 
         localCompScore = 0;
         localScore = 0;
 
-        score.textContent = 'Player Score: ' + localScore;
-        compScore.textContent = 'Computer Score: ' + localCompScore;
+        popup2.classList.remove('open');
+        popup2.classList.remove('popup');
+        popup2.removeChild(answer);
+        popup2.id = 'answer';
 
-        answer.classList.remove('gameOver')
-        answer.removeChild(playAgain);
-        answer.textContent = ''
+        preGameSetup();
 
         popup.classList.add("open");
     });
@@ -93,11 +125,11 @@ function game(playerChoice) {
 
     const getImage = (choice) => {
         if (choice === 0) {
-            return 'Images/rock-paper-scissors-296854_1280.png'
+            return 'Images/output-onlinepngtools (1).png'
         } else if (choice === 1) {
-            return 'Images/rock-paper-scissors-296855_1280.png'
+            return 'Images/output-onlinepngtools.png'
         } else {
-            return 'Images/rock-paper-scissors-296853_1280.png'
+            return 'Images/output-onlinepngtools (2).png'
         }
     }
 
@@ -165,6 +197,8 @@ overallScoreComp.appendChild(compScore);
 
 imageOne.appendChild(image1);
 imageTwo.appendChild(image2);
+
+preGameSetup();
 
 rock.addEventListener('click', () => game(0));
 paper.addEventListener('click', () => game(1));
